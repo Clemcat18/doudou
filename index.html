@@ -182,13 +182,14 @@
     <div class="hint" id="hint">“No” seems a bit shy 😈</div>
 
     <section class="result" id="result">
-      <h2>YAY! 🎉</h2>
-      <img
-        class="fireworks"
-        src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif"
-        alt="Fireworks"
-      />
-    </section>
+  <h2>YAY! 🎉</h2>
+
+  <!-- Vidéo coeur.mp4 -->
+  <video id="explosionVideo" class="fireworks" width="600" autoplay muted loop style="display:none;">
+    <source src="coeur.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
+</section>
   </main>
 
   <script>
@@ -290,17 +291,17 @@
     noBtn.addEventListener("click", e => e.preventDefault());
 
     /* ---------- YES CLICK ---------- */
-     yesBtn.addEventListener("click", () => {
+    yesBtn.addEventListener("click", () => {
   // cacher les éléments existants
   zone.style.display = "none";
   hint.style.display = "none";     
   result.style.display = "block";
-      const canvas = document.getElementById("canvas");
-  if (canvas) canvas.style.display = "none";
 
-      const video = document.getElementById("explosionVideo");
-  video.style.display = "block";  // montre la vidéo
-  video.play();                    // démarre la lecture
+      const oldImg = result.querySelector("img");
+  if (oldImg) oldImg.style.display = "none";
+const video = document.getElementById("explosionVideo");
+  video.style.display = "block";
+  video.play();
 });
   </script>
  <video id="explosionVideo" width="600" autoplay muted loop style="display:none;">
@@ -309,6 +310,7 @@
 </video>
 </body>
 </html>
+
 
 
 
