@@ -290,16 +290,32 @@
     noBtn.addEventListener("click", e => e.preventDefault());
 
     /* ---------- YES CLICK ---------- */
-    yesBtn.addEventListener("click", () => {
+     yesBtn.addEventListener("click", () => {
+      // cacher les éléments existants
       zone.style.display = "none";
       hint.style.display = "none";     // HIDE THE HINT
       result.style.display = "block";
-      resizeConfettiCanvas();
-      fullScreenConfetti();
+
+      // cacher le canvas du feu d'artifice (s’il existe)
+      const canvas = document.getElementById("canvas");
+      if (canvas) canvas.style.display = "none";
+
+      // afficher et jouer la vidéo
+      const video = document.getElementById("explosionVideo");
+      video.style.display = "block";  // montre la vidéo
+      video.play();                    // démarre la lecture
     });
   </script>
+
+  <!-- AJOUT DE TA VIDEO -->
+  <video id="explosionVideo" width="600" autoplay muted loop style="display:none;">
+    <source src="coeur.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
+
 </body>
 </html>
+
 
 
 
